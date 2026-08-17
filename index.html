@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jagadeesh D — Software Developer · AI/ML Enthusiast · Creative Designer</title>
+<meta name="description" content="Portfolio of Jagadeesh D — Computer Science student building software, exploring AI/ML, and crafting creative design work.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="lock-scroll">
+
+<!-- ============ CUSTOM CURSOR ============ -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ============ NOISE / GRAIN OVERLAY ============ -->
+<div class="grain"></div>
+
+<!-- ============ LOADER ============ -->
+<div class="loader" id="loader">
+  <div class="loader-mark">
+    <span>&lt;</span><span class="loader-name">JD</span><span>/&gt;</span>
+  </div>
+  <div class="loader-bar"><span id="loaderProgress"></span></div>
+</div>
+
+<!-- ============ NAVIGATION ============ -->
+<nav class="navbar" id="navbar">
+  <a href="#home" class="nav-logo">JD<span class="dot">.</span></a>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home" class="nav-link active" data-section="home"><span class="nav-idx">00</span>Home</a></li>
+    <li><a href="#about" class="nav-link" data-section="about"><span class="nav-idx">01</span>About</a></li>
+    <li><a href="#skills" class="nav-link" data-section="skills"><span class="nav-idx">02</span>Skills</a></li>
+    <li><a href="#projects" class="nav-link" data-section="projects"><span class="nav-idx">03</span>Projects</a></li>
+    <li><a href="#creative" class="nav-link" data-section="creative"><span class="nav-idx">04</span>Creative</a></li>
+    <li><a href="#journey" class="nav-link" data-section="journey"><span class="nav-idx">05</span>Journey</a></li>
+    <li><a href="#services" class="nav-link" data-section="services"><span class="nav-idx">06</span>Services</a></li>
+    <li><a href="#contact" class="nav-link" data-section="contact"><span class="nav-idx">07</span>Contact</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <canvas class="hero-canvas" id="heroCanvas"></canvas>
+  <div class="hero-grid-lines" aria-hidden="true"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow reveal-up" data-delay="0">
+      <span class="pulse-dot"></span> Available for opportunities
+    </p>
+    <h1 class="hero-title">
+      <span class="reveal-up" data-delay="1">Hi, I'm</span>
+      <span class="hero-name reveal-up" data-delay="2">Jagadeesh<span class="wave-emoji">👋</span></span>
+    </h1>
+    <p class="hero-roles reveal-up" data-delay="3">
+      <span class="role-item">Software Developer</span>
+      <span class="role-sep">•</span>
+      <span class="role-item">AI/ML Enthusiast</span>
+      <span class="role-sep">•</span>
+      <span class="role-item">Creative Designer</span>
+    </p>
+    <p class="hero-tagline reveal-up" data-delay="4">
+      "I build useful digital experiences with code, creativity and curiosity."
+    </p>
+    <div class="hero-cta reveal-up" data-delay="5">
+      <a href="#projects" class="btn btn-primary">
+        <span>View My Work</span>
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#contact" class="btn btn-ghost">
+        <span>Let's Connect</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="hero-scroll-cue reveal-up" data-delay="6">
+    <span>Scroll</span>
+    <div class="scroll-line"><i></i></div>
+  </div>
+</section>
+
+<!-- ============ COMPANION / GHIBLI CHARACTER ============ -->
+<section class="companion" id="companion">
+  <div class="section-inner companion-inner">
+    <div class="companion-stage">
+      <div class="companion-glow"></div>
+      <div class="companion-avatar" id="companionAvatar">
+        <svg viewBox="0 0 340 400" class="avatar-svg" id="avatarSvg" aria-label="Illustrated character of Jagadeesh">
+          <defs>
+            <radialGradient id="skinGrad" cx="35%" cy="30%" r="80%">
+              <stop offset="0%" stop-color="#e8ab7a"/>
+              <stop offset="100%" stop-color="#c9885d"/>
+            </radialGradient>
+            <linearGradient id="hairGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#2a2118"/>
+              <stop offset="100%" stop-color="#120e0a"/>
+            </linearGradient>
+            <linearGradient id="shirtGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#A8B7E8"/>
+              <stop offset="100%" stop-color="#7C8FD1"/>
+            </linearGradient>
+          </defs>
+
+          <!-- floating platform shadow -->
+          <ellipse cx="170" cy="378" rx="92" ry="14" fill="#000" opacity="0.25"/>
+
+          <!-- body -->
+          <g id="avatarBody">
+            <path d="M92 400 C92 320 120 270 170 270 C220 270 248 320 248 400 Z" fill="url(#shirtGrad)"/>
+            <path d="M150 275 C150 275 160 292 170 292 C180 292 190 275 190 275 L184 262 L156 262 Z" fill="#e8a271"/>
+          </g>
+
+          <!-- waving arm -->
+          <g id="avatarArm" class="avatar-wave-arm">
+            <path d="M232 300 C255 288 268 260 262 236 C259 224 246 222 242 232 C246 250 238 268 220 280 Z" fill="url(#shirtGrad)"/>
+            <circle cx="256" cy="232" r="15" fill="url(#skinGrad)"/>
+          </g>
+
+          <!-- head group (breathing/head tilt applied via CSS to #avatarHead) -->
+          <g id="avatarHead">
+            <ellipse cx="170" cy="185" rx="76" ry="82" fill="url(#skinGrad)"/>
+            <!-- ears -->
+            <ellipse cx="97" cy="188" rx="10" ry="16" fill="#dc9a6a"/>
+            <ellipse cx="243" cy="188" rx="10" ry="16" fill="#dc9a6a"/>
+            <!-- hair back -->
+            <path d="M94 152 C82 86 126 44 170 44 C216 44 258 86 246 152 C246 118 230 104 230 104 C230 104 214 138 170 138 C126 138 110 104 110 104 C110 104 94 118 94 152 Z" fill="url(#hairGrad)"/>
+            <!-- hair front tuft (tousled, wavy — inspired by reference photo) -->
+            <path d="M112 116 C108 90 128 62 152 54 C146 66 150 78 160 82 C166 64 182 52 202 54 C194 62 192 74 198 84 C210 72 224 76 230 92 C220 82 206 84 202 96 C214 92 224 100 226 114 C214 100 196 96 184 104 C176 92 160 90 150 100 C140 90 122 92 116 106 C120 100 116 110 112 116 Z" fill="url(#hairGrad)"/>
+            <!-- eyebrows -->
+            <path d="M132 170 q14 -8 28 -1" stroke="#241a12" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <path d="M208 170 q-14 -8 -28 -1" stroke="#241a12" stroke-width="4" stroke-linecap="round" fill="none"/>
+            <!-- eyes -->
+            <g id="avatarEyes">
+              <ellipse cx="145" cy="188" rx="10" ry="12" fill="#241a2e"/>
+              <ellipse cx="195" cy="188" rx="10" ry="12" fill="#241a2e"/>
+              <circle cx="148" cy="184" r="3" fill="#fff"/>
+              <circle cx="198" cy="184" r="3" fill="#fff"/>
+            </g>
+            <!-- eyelids for blink -->
+            <g id="avatarBlink">
+              <rect x="133" y="176" width="24" height="0" fill="#f0b98a"/>
+              <rect x="183" y="176" width="24" height="0" fill="#f0b98a"/>
+            </g>
+            <!-- nose -->
+            <path d="M170 196 q4 8 0 14" stroke="#a8623e" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <!-- subtle mustache -->
+            <path d="M150 209 q10 6 20 0 q10 6 20 0" stroke="#241a12" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.75"/>
+            <!-- smile -->
+            <path id="avatarMouth" d="M148 218 q22 16 44 0" stroke="#7a4330" stroke-width="4" fill="none" stroke-linecap="round"/>
+            <!-- blush -->
+            <ellipse cx="128" cy="206" rx="10" ry="6" fill="#ff9b8a" opacity="0.35"/>
+            <ellipse cx="212" cy="206" rx="10" ry="6" fill="#ff9b8a" opacity="0.35"/>
+          </g>
+        </svg>
+
+        <div class="speech-bubble" id="speechBubble">
+          <p id="speechText"></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="companion-text">
+      <p class="eyebrow reveal-up">Say hello</p>
+      <h2 class="section-title reveal-up">A friendly face behind the code</h2>
+      <p class="companion-desc reveal-up">
+        This little companion is a stylized, illustrated version of me — press play and I'll introduce
+        myself out loud. Not a lot of noise, just one short hello.
+      </p>
+      <button class="btn btn-primary" id="playIntroBtn">
+        <svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+        <span>Play Introduction</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="about" id="about">
+  <div class="section-inner">
+    <p class="eyebrow reveal-up">Who I am</p>
+    <h2 class="section-title reveal-up">A Little About Me</h2>
+    <p class="section-lead reveal-up">
+      I'm a Computer Science student passionate about software development, artificial intelligence,
+      web technologies and creative design. I enjoy learning new technologies, solving problems, building
+      projects and helping people turn their ideas into practical digital solutions.
+    </p>
+
+    <div class="about-grid">
+      <div class="about-card reveal-up" data-delay="0">
+        <span class="about-icon">💻</span>
+        <h3>Coding</h3>
+        <p>Writing clean, functional code across Java, Python, C# and the web.</p>
+      </div>
+      <div class="about-card reveal-up" data-delay="1">
+        <span class="about-icon">🤖</span>
+        <h3>AI &amp; ML</h3>
+        <p>Exploring machine learning and data-driven problem solving.</p>
+      </div>
+      <div class="about-card reveal-up" data-delay="2">
+        <span class="about-icon">🌐</span>
+        <h3>Web Development</h3>
+        <p>Building responsive, modern interfaces and full applications.</p>
+      </div>
+      <div class="about-card reveal-up" data-delay="3">
+        <span class="about-icon">🎨</span>
+        <h3>Creative Design</h3>
+        <p>Designing posters, presentations and graphics that communicate.</p>
+      </div>
+      <div class="about-card reveal-up" data-delay="4">
+        <span class="about-icon">📚</span>
+        <h3>Continuous Learning</h3>
+        <p>Always picking up a new tool, language or way of thinking.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section class="skills" id="skills">
+  <div class="section-inner">
+    <p class="eyebrow reveal-up">What I know</p>
+    <h2 class="section-title reveal-up">Skills, in orbit</h2>
+    <p class="section-lead reveal-up">Move your cursor across the field — everything here reacts.</p>
+  </div>
+
+  <div class="skills-field" id="skillsField">
+    <!-- category columns injected / static -->
+    <div class="skill-orbit-group" data-cat="Programming">
+      <h3 class="skill-cat-title">Programming</h3>
+      <div class="orb-row">
+        <div class="skill-orb" data-tilt><span>Java</span></div>
+        <div class="skill-orb" data-tilt><span>Python</span></div>
+        <div class="skill-orb" data-tilt><span>C#</span></div>
+      </div>
+    </div>
+    <div class="skill-orbit-group" data-cat="Web">
+      <h3 class="skill-cat-title">Web</h3>
+      <div class="orb-row">
+        <div class="skill-orb" data-tilt><span>HTML</span></div>
+        <div class="skill-orb" data-tilt><span>CSS</span></div>
+        <div class="skill-orb" data-tilt><span>JavaScript</span></div>
+        <div class="skill-orb" data-tilt><span>ASP.NET</span></div>
+      </div>
+    </div>
+    <div class="skill-orbit-group" data-cat="Database">
+      <h3 class="skill-cat-title">Database</h3>
+      <div class="orb-row">
+        <div class="skill-orb" data-tilt><span>SQL</span></div>
+        <div class="skill-orb" data-tilt><span>SQL Server</span></div>
+      </div>
+    </div>
+    <div class="skill-orbit-group" data-cat="AI / ML">
+      <h3 class="skill-cat-title">AI / ML</h3>
+      <div class="orb-row">
+        <div class="skill-orb" data-tilt><span>Machine Learning</span></div>
+        <div class="skill-orb" data-tilt><span>Data Analysis</span></div>
+        <div class="skill-orb" data-tilt><span>Python Libraries</span></div>
+        <div class="skill-orb" data-tilt><span>NLP (Basics)</span></div>
+        <div class="skill-orb" data-tilt><span>CVIP (Basics)</span></div>
+      </div>
+    </div>
+    <div class="skill-orbit-group" data-cat="Creative">
+      <h3 class="skill-cat-title">Creative</h3>
+      <div class="orb-row">
+        <div class="skill-orb" data-tilt><span>Canva</span></div>
+        <div class="skill-orb" data-tilt><span>Poster Design</span></div>
+        <div class="skill-orb" data-tilt><span>Presentation Design</span></div>
+        <div class="skill-orb" data-tilt><span>Brochure Design</span></div>
+        <div class="skill-orb" data-tilt><span>Sales Posters</span></div>
+        <div class="skill-orb" data-tilt><span>Invitation Design</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROJECTS ============ -->
+<section class="projects" id="projects">
+  <div class="section-inner">
+    <p class="eyebrow reveal-up">What I've built</p>
+    <h2 class="section-title reveal-up">Selected Projects</h2>
+  </div>
+
+  <p class="flip-hint section-inner reveal-up">Hover a card <span class="flip-hint-desktop">(or tap, on mobile)</span> to flip it and see more.</p>
+
+  <div class="projects-grid section-inner">
+
+    <article class="project-card reveal-up" data-flip-card>
+      <div class="project-card-inner">
+        <div class="project-face project-front">
+          <div class="project-media"><div class="project-media-fallback">NARL</div></div>
+          <div class="project-body">
+            <span class="project-tags">ASP.NET • C# • SQL Server</span>
+            <h3>NARL Budget Transparency System</h3>
+            <p>A web-based budget management system built to bring transparency to how budgets are tracked between employees.</p>
+            <span class="project-flip-cue">Hover for details →</span>
+          </div>
+        </div>
+        <div class="project-face project-back">
+          <span class="project-tags">Confidential Project</span>
+          <h3>NARL Budget Transparency System</h3>
+          <p class="project-back-note">NARL is an ISRO sub-centre, so the codebase and data stay private — here's what the system focuses on:</p>
+          <ul class="project-feature-list">
+            <li>Role-based secure login with session verification</li>
+            <li>Passwords stored using salted hashing, never in plain text</li>
+            <li>Shared visibility into budget allocation across employees</li>
+            <li>Audit trail for approvals and spending changes</li>
+          </ul>
+          <span class="btn-small btn-disabled">Confidential — no public repo</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card reveal-up" data-flip-card>
+      <div class="project-card-inner">
+        <div class="project-face project-front">
+          <div class="project-media"><div class="project-media-fallback">CSP</div></div>
+          <div class="project-body">
+            <span class="project-tags">Horticulture • Community Service</span>
+            <h3>Community Service Project — Horticulture</h3>
+            <p>Hands-on fieldwork in rose and chamanti (chrysanthemum) cultivation and organic gardening in AdenaPalli village.</p>
+            <span class="project-flip-cue">Hover for details →</span>
+          </div>
+        </div>
+        <div class="project-face project-back">
+          <span class="project-tags">Horticulture • Community Service</span>
+          <h3>Community Service Project</h3>
+          <ul class="project-feature-list">
+            <li>Worked directly in rose and chamanti flower fields</li>
+            <li>Prepared organic inputs — jeevamrutham, panchagavya, neemastra, vermicompost</li>
+            <li>Ran awareness sessions on sustainable, chemical-free gardening</li>
+            <li>Documented surveys, activity logs and outcomes in a full report</li>
+          </ul>
+          <div class="project-links">
+            <a href="assets/Jagadeesh-CSP-Horticulture-Report.pdf" target="_blank" rel="noopener" class="btn-small">View Project</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card reveal-up" data-flip-card>
+      <div class="project-card-inner">
+        <div class="project-face project-front">
+          <div class="project-media"><div class="project-media-fallback">AI/ML</div></div>
+          <div class="project-body">
+            <span class="project-tags">Python • NLP • Computer Vision</span>
+            <h3>AI / Machine Learning Projects</h3>
+            <p>Exploratory projects spanning machine learning, NLP and computer vision basics.</p>
+            <span class="project-flip-cue">Hover for details →</span>
+          </div>
+        </div>
+        <div class="project-face project-back">
+          <span class="project-tags">Python • NLP • Computer Vision</span>
+          <h3>AI / Machine Learning Projects</h3>
+          <ul class="project-feature-list">
+            <li>NLP basics — text classification and simple sentiment analysis</li>
+            <li>Computer Vision &amp; Image Processing (CVIP) fundamentals</li>
+            <li>Data analysis and visualization with Python libraries</li>
+            <li>Small applied ML models built for coursework and practice</li>
+          </ul>
+          <div class="project-links">
+            <a href="#" class="btn-small">View Project</a>
+            <a href="https://github.com/Jagadeeshd06" target="_blank" rel="noopener" class="btn-small btn-small-outline">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card reveal-up" data-flip-card>
+      <div class="project-card-inner">
+        <div class="project-face project-front">
+          <div class="project-media"><div class="project-media-fallback">SCMS</div></div>
+          <div class="project-body">
+            <span class="project-tags">Python • AI Chatbot • App Extension</span>
+            <h3>Smart Campus Management System</h3>
+            <p>A campus management system with a healthcare chatbot and automatic attendance alerts, built to also work as a shortcut app extension.</p>
+            <span class="project-flip-cue">Hover for details →</span>
+          </div>
+        </div>
+        <div class="project-face project-back">
+          <span class="project-tags">Python • AI Chatbot • App Extension</span>
+          <h3>Smart Campus Management System</h3>
+          <ul class="project-feature-list">
+            <li>Doubles as a lightweight shortcut / app extension for quick access</li>
+            <li>Built-in healthcare chatbot for campus support</li>
+            <li>Automatic monthly attendance tracking</li>
+            <li>Sends alert notifications when attendance drops below 75%</li>
+          </ul>
+          <span class="btn-small btn-disabled">Files coming soon</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="project-card reveal-up" data-flip-card>
+      <div class="project-card-inner">
+        <div class="project-face project-front">
+          <div class="project-media"><div class="project-media-fallback">WEB</div></div>
+          <div class="project-body">
+            <span class="project-tags">HTML • CSS • JavaScript</span>
+            <h3>Restaurant Website</h3>
+            <p>A responsive restaurant website covering menu, gallery and reservations.</p>
+            <span class="project-flip-cue">Hover for details →</span>
+          </div>
+        </div>
+        <div class="project-face project-back">
+          <span class="project-tags">HTML • CSS • JavaScript</span>
+          <h3>Restaurant Website</h3>
+          <ul class="project-feature-list">
+            <li>Menu, gallery and reservation sections</li>
+            <li>Built with HTML, CSS and JavaScript</li>
+            <li>Mobile-first, responsive layout</li>
+            <li>Live link and code coming soon</li>
+          </ul>
+          <span class="btn-small btn-disabled">Files coming soon</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ CREATIVE WORK ============ -->
+<section class="creative" id="creative">
+  <div class="section-inner">
+    <p class="eyebrow reveal-up">What I create</p>
+    <h2 class="section-title reveal-up">Beyond Code</h2>
+    <p class="section-lead reveal-up">Canva designs, posters, presentations and graphics — click any tile to open it.</p>
+  </div>
+
+  <div class="creative-grid section-inner" id="creativeGrid">
+    <div class="creative-item tall" data-title="Trifold Brochure" data-desc="A department trifold brochure design covering an institute overview, programs and event details." style="--tint:#7C6CFF"></div>
+    <div class="creative-item" data-title="Farewell Invitation" data-desc="An elegant gold-on-navy event invitation designed for a college farewell party." style="--tint:#FF9B54" ></div>
+    <div class="creative-item" data-title="Sales Poster" data-desc="A combo-offer sales poster designed to promote a food menu with pricing and a call to action." style="--tint:#57D6C2"></div>
+    <div class="creative-item tall" data-title="Workshop Presentation" data-desc="Slide design for an AI / Deep Learning domain-specific workshop presentation." style="--tint:#FF6C90"></div>
+    <div class="creative-item" data-title="Website Mockup" data-desc="A login-page website design mockup created for a campus utility concept." style="--tint:#7C6CFF"></div>
+    <div class="creative-item" data-title="New Year Invitation" data-desc="A festive luxury-style New Year event invitation card." style="--tint:#FF9B54"></div>
+    <div class="creative-item" data-title="Social Media Graphic" data-desc="An Instagram promotional post designed for a food combo offer." style="--tint:#57D6C2"></div>
+    <div class="creative-item tall" data-title="Seminar Invitation Card" data-desc="A workshop invitation card featuring a speaker photo and event schedule." style="--tint:#FF6C90"></div>
+  </div>
+</section>
+
+<!-- creative lightbox -->
+<div class="lightbox" id="lightbox">
+  <div class="lightbox-panel">
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+    <div class="lightbox-visual" id="lightboxVisual"></div>
+    <h3 id="lightboxTitle"></h3>
+    <p id="lightboxDesc"></p>
+  </div>
+</div>
+
+<!-- ============ JOURNEY / TIMELINE ============ -->
+<section class="journey" id="journey">
+  <div class="section-inner">
+    <p class="eyebrow reveal-up">Where it started</p>
+    <h2 class="section-title reveal-up">My Journey</h2>
+  </div>
+
+  <div class="timeline section-inner">
+    <div class="timeline-line"><span class="timeline-progress" id="timelineProgress"></span></div>
+
+    <div class="timeline-item reveal-up">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-tag">Education</span>
+        <h3>Computer Science / Artificial Intelligence</h3>
+        <p>Building a foundation across programming, systems and applied AI.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal-up">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-tag">Learning</span>
+        <h3>Java → Python → Web Development → AI/ML → Advanced Development</h3>
+        <p>A steady path of picking up new languages and disciplines, one at a time.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal-up">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-tag">Projects</span>
+        <h3>Academic &amp; Personal Projects</h3>
+        <p>Turning what I learn into working software, from budget systems to ML experiments.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal-up">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <span class="timeline-tag">Future Goals</span>
+        <h3>Become a Strong Software Developer</h3>
+        <p>Building useful technology and continuing to grow as a developer and designer.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ACHIEVEMENTS ============ -->
+  <div class="achievements section-inner">
+    <div class="achieve-card reveal-up">
+      <span class="achieve-num" data-target="10">0</span><span class="achieve-plus">+</span>
+      <p>Projects Built</p>
+    </div>
+    <div class="achieve-card reveal-up">
+      <span class="achieve-num" data-target="15">0</span><span class="achieve-plus">+</span>
+      <p>Technologies</p>
+    </div>
+    <div class="achieve-card reveal-up">
+      <span class="achieve-num" data-target="20">0</span><span class="achieve-plus">+</span>
+      <p>Creative Designs</p>
+    </div>
+    <div class="achieve-card reveal-up">
+      <span class="achieve-num-inf">∞</span>
+      <p>Learning Mindset</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SERVICES ============ -->
+<section class="services" id="services">
+  <div class="section-inner">
+    <p class="eyebrow reveal-up">How I can help</p>
+    <h2 class="section-title reveal-up">Services</h2>
+  </div>
+
+  <div class="services-grid section-inner">
+    <div class="service-card reveal-up">
+      <span class="service-idx">01</span>
+      <h3>Web Development</h3>
+      <p>Modern responsive websites and web applications.</p>
+    </div>
+    <div class="service-card reveal-up">
+      <span class="service-idx">02</span>
+      <h3>Java / Python Development</h3>
+      <p>Programming solutions, projects and automation.</p>
+    </div>
+    <div class="service-card reveal-up">
+      <span class="service-idx">03</span>
+      <h3>ASP.NET &amp; C#</h3>
+      <p>Web applications and backend development.</p>
+    </div>
+    <div class="service-card reveal-up">
+      <span class="service-idx">04</span>
+      <h3>Database Development</h3>
+      <p>SQL and SQL Server database solutions.</p>
+    </div>
+    <div class="service-card reveal-up">
+      <span class="service-idx">05</span>
+      <h3>AI / ML Projects</h3>
+      <p>Machine learning and data-related projects.</p>
+    </div>
+    <div class="service-card reveal-up">
+      <span class="service-idx">06</span>
+      <h3>Canva Design</h3>
+      <p>Professional Canva designs and graphics.</p>
+    </div>
+    <div class="service-card reveal-up">
+      <span class="service-idx">07</span>
+      <h3>Poster Design</h3>
+      <p>Creative and attractive posters.</p>
+    </div>
+    <div class="service-card reveal-up">
+      <span class="service-idx">08</span>
+      <h3>Presentation Design</h3>
+      <p>Professional PowerPoint / presentation designs.</p>
+    </div>
+    <div class="service-card reveal-up">
+      <span class="service-idx">09</span>
+      <h3>wedding invitation & web Design</h3>
+      <p>Professional wedding invitations and website designs.</p>
+    </div>
+    <div class="service-card reveal-up">
+      <span class="service-idx">10</span>
+      <h3>Birthday surprises website design</h3>
+      <p>Professional website designs for birthday surprises.</p>
+    </div>
+    <div class="service-card reveal-up">
+      <span class="service-idx">11</span>
+        <h3>Proposal / apology webpages and letters design </h3>
+        <p>Professional proposal & apologydesigns with customised background images and audio files.</p>
+    </div>
+    <div class="service-card reveal-up">
+      <span class="service-idx">12</span>
+      <h3>Kids Birthday Party Website Design</h3>
+      <p>Professional website designs for kids' birthday parties.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="section-inner contact-inner">
+    <div class="contact-left">
+      <p class="eyebrow reveal-up">Get in touch</p>
+      <h2 class="section-title reveal-up">Let's Build Something Together.</h2>
+      <p class="section-lead reveal-up">Have an idea, project or design requirement? Let's turn it into something useful and beautiful.</p>
+
+      <ul class="contact-links reveal-up">
+        <li><a href="mailto:jagadeesh901@gmail.com" id="emailContactLink">Email <span>jagadeesh901@gmail.com</span></a></li>
+        <li><a href="https://www.linkedin.com/in/jagadeesh-babu-daggupati-179513273" target="_blank" rel="noopener">LinkedIn <span>/in/jagadeesh-babu-daggupati</span></a></li>
+        <li><a href="https://github.com/Jagadeeshd06" target="_blank" rel="noopener">GitHub <span>/Jagadeeshd06</span></a></li>
+        <li><a href="https://www.fiverr.com/jagadeeshd901" target="_blank" rel="noopener">Fiverr <span>@jagadeeshd901</span></a></li>
+        <li><a href="https://www.instagram.com/_jxgxdeezh_d_" target="_blank" rel="noopener">Instagram <span>@_jxgxdeezh_d_</span></a></li>
+      </ul>
+    </div>
+
+    <form class="contact-form reveal-up" id="contactForm">
+      <div class="form-row">
+        <label for="cf-name">Name</label>
+        <input type="text" id="cf-name" name="name" placeholder="Your name" required>
+      </div>
+      <div class="form-row">
+        <label for="cf-email">Email</label>
+        <input type="email" id="cf-email" name="email" placeholder="you@example.com" required>
+      </div>
+      <div class="form-row">
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" rows="5" placeholder="Tell me about your idea..." required></textarea>
+      </div>
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary form-submit">
+          <span>Send Message</span>
+          <svg viewBox="0 0 24 24" fill="none" width="18" height="18"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="btn btn-ghost form-whatsapp" id="whatsappBtn">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4a8.94 8.94 0 0 0-7.75 13.4L4 20l2.68-.7a8.9 8.9 0 0 0 4.27 1.09h.02a8.94 8.94 0 0 0 6.31-15.4Zm-5.55 13.7h-.01a7.42 7.42 0 0 1-3.78-1.04l-.27-.16-2.81.74.75-2.74-.18-.28a7.44 7.44 0 0 1 11.62-9.2 7.4 7.4 0 0 1-5.32 12.68Zm4.08-5.55c-.22-.11-1.31-.65-1.51-.72-.2-.08-.35-.11-.5.11-.15.22-.57.72-.7.87-.13.15-.26.16-.48.05-.22-.11-.94-.35-1.79-1.1-.66-.59-1.11-1.32-1.24-1.54-.13-.22-.01-.34.1-.45.1-.1.22-.26.33-.39.11-.13.15-.22.22-.37.07-.15.04-.28-.02-.39-.05-.11-.5-1.21-.69-1.65-.18-.43-.36-.37-.5-.38h-.43c-.15 0-.39.05-.6.28-.2.22-.79.77-.79 1.87s.81 2.17.92 2.32c.11.15 1.6 2.44 3.87 3.42.54.23.96.37 1.29.48.54.17 1.03.15 1.42.09.43-.06 1.31-.53 1.5-1.05.18-.51.18-.95.13-1.04-.05-.09-.2-.15-.42-.26Z"/></svg>
+          <span>WhatsApp</span>
+        </button>
+      </div>
+      <p class="form-note" id="formNote" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>Designed &amp; built by Jagadeesh D · <span id="footerYear"></span></p>
+  <a href="#home" class="footer-top">Back to top ↑</a>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
