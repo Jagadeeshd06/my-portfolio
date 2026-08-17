@@ -2,7 +2,7 @@
 
 A single-page, animated developer & creative-design portfolio built with pure HTML, CSS and JavaScript — no frameworks, no build tools, no dependencies to install.
 
-🔗 **Live site:** _add your deployed link here djagadeeshportfolio.netlify.app
+🔗 **Live site:** djagadeeshportfolio.netlify.app
 
 ---
 
@@ -14,17 +14,17 @@ A single-page, animated developer & creative-design portfolio built with pure HT
 - **Flip-card project gallery** with detail panels and links
 - **Creative work grid** with a lightbox for design pieces
 - **Animated journey timeline** and **counting achievement stats**
-- **Working contact form** — hands off to email (`mailto:`) or WhatsApp, no backend required
+- **Working contact form** — hands off to email (jagadeeshd901@gmail.com) or WhatsApp, no backend required
 - Custom cursor, grain/noise overlay, and full responsive layout (desktop → mobile)
-- Respects `prefers-reduced-motion` for accessibility
+- Respects prefers-reduced-motion` for accessibility
 
 ## 🛠️ Tech Stack
 
-| Layer      | Tech                                  |
-|------------|----------------------------------------|
-| Structure  | HTML5                                  |
-| Styling    | CSS3 (custom properties / design tokens) |
-| Behavior   | Vanilla JavaScript (no frameworks)     |
+| Layer      | Tech                                    |
+|------------|---------------------------------------- |
+| Structure  | HTML5                                   |
+| Styling    | CSS3 (custom properties / design tokens)|
+| Behavior   | Vanilla JavaScript (no frameworks)      |
 | Fonts      | Google Fonts — Space Grotesk, Inter, JetBrains Mono |
 
 ## 📁 Project Structure
@@ -40,7 +40,7 @@ portfolio/
 No build step required.
 
 **Option 1 — Open directly**
-Just open `index.html` in your browser.
+Just open index.html in your browser.
 
 **Option 2 — Serve locally**
 bash
@@ -51,7 +51,7 @@ then visit the local URL it prints.
 
 1. Push this repo to GitHub.
 2. Go to **Settings → Pages**.
-3. Under **Source**, select the `main` branch and `/ (root)` folder.
+3. Under **Source**, select the main branch and / (root) folder.
 4. Save — your site will be live at `https://<username>.github.io/<repo-name>/`.
 
 ## ⚙️ Customization
@@ -59,8 +59,8 @@ then visit the local URL it prints.
 - **Colors / fonts** — edit the `:root` design tokens at the top of `style.css`.
 - **Contact details** — open `script.js` and set:
   js
-  const CONTACT_EMAIL = "jagadeesh@example.com";
-  const WHATSAPP_NUMBER = "910000000000"; // country code + number, digits only
+  const CONTACT_EMAIL = "jagadeeshd901@gmail.com";
+  const WHATSAPP_NUMBER = "+91 8019401692"; // country code + number, digits only
   
 - **Achievements numbers** — update the `data-target` attributes in the Achievements section of `index.html`.
 - **Projects** — edit the front/back content inside each `.project-card` in `index.html`.
